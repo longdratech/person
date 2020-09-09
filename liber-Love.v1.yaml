@@ -125,7 +125,7 @@ paths:
                     - string
                   personalities_other_person:
                     - string
-  /profile:
+  /user/profile:
     get:
       summary: Your GET endpoint
       tags: []
@@ -140,8 +140,6 @@ paths:
             schema:
               type: object
               properties:
-                email:
-                  type: string
                 phone:
                   type: string
                 last_name:
@@ -235,20 +233,7 @@ paths:
                       type: boolean
                     other_news:
                       type: boolean
-                qna:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      question:
-                        type: string
-                      answer:
-                        type: string
-                company_profile:
-                  type: string
-                tems_of_service:
-                  type: string
-                specified_commercial:
+                email:
                   type: string
             examples:
               profile:
@@ -330,6 +315,53 @@ paths:
                   terms_of_service: string
                   privacy_policy: プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。
                   specified_commercial: 特定商取引法に基づく表示が入ります。特定商取引法に基づく表示が入ります。特定商取引法に基づく表示が入ります。特定商取引法に基づく表示が入ります。
+              example-2:
+                value:
+                  phone: string
+                  last_name: string
+                  last_time_active: string
+                  nick_name: string
+                  has_free_time: true
+                  birthday: string
+                  area: string
+                  city: string
+                  gender_born: string
+                  gender: string
+                  bodies:
+                    - string
+                  personalities:
+                    - string
+                  hobbies:
+                    - string
+                  images:
+                    - string
+                  introduction: string
+                  areas_other_person:
+                    - area: string
+                      cities:
+                        - string
+                  ages_other_person:
+                    - string
+                  gender_borns_other_person: string
+                  genders_other_person: string
+                  bodies_other_person: string
+                  personalities_other_person:
+                    - string
+                  show_swipe: true
+                  show_info: true
+                  private_profile: true
+                  activity: true
+                  push_local:
+                    liked: true
+                    matched: true
+                    message: true
+                    other_news: true
+                  push_mail:
+                    liked: true
+                    matched: true
+                    message: true
+                    other_news: true
+                  email: string
     parameters: []
   /login:
     post:
@@ -408,11 +440,928 @@ paths:
                   type: string
                   description: |
                     User gui ma otp gom 6 so len server xac thuc
+  /user/has-time-free:
+    parameters: []
+    put:
+      summary: ''
+      operationId: put-user-has-time-free
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                has_free_time:
+                  type: boolean
+            examples: {}
+  /user/images:
+    put:
+      summary: ''
+      operationId: put-user-images
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                images:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+  /user/introduction:
+    put:
+      summary: ''
+      operationId: put-user-introduction
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                introduction:
+                  type: string
+  /user/hobbies:
+    put:
+      summary: ''
+      operationId: put-user-hobbies
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hobbies:
+                  type: array
+                  items:
+                    type: string
+  /user/gender:
+    put:
+      summary: ''
+      operationId: put-user-gender
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                gender:
+                  type: string
+  /user/boddies:
+    put:
+      summary: ''
+      operationId: put-user-boddies
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bodies:
+                  type: array
+                  items:
+                    type: string
+  /user/personalities:
+    put:
+      summary: ''
+      operationId: put-user-personalities
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                personalities:
+                  type: array
+                  items:
+                    type: string
+  /user/schedules:
+    put:
+      summary: ''
+      operationId: put-user-schedules
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                convenient_schedule:
+                  type: array
+                  items:
+                    type: string
+                isPublic:
+                  type: boolean
+  /user/job:
+    put:
+      summary: ''
+      operationId: put-user-job
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                job:
+                  type: string
+                isPublic:
+                  type: boolean
+  /user/degree:
+    put:
+      summary: ''
+      operationId: put-user-degree
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                degree:
+                  type: string
+                isPublic:
+                  type: boolean
+  /user/purpose-use-app:
+    put:
+      summary: ''
+      operationId: put-user-purpose-use-app
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                purpose_use_app:
+                  type: array
+                  items:
+                    type: string
+  /user/phone:
+    put:
+      summary: ''
+      operationId: put-user-phone
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+  /user/email:
+    put:
+      summary: ''
+      operationId: put-user-email
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Accepted
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+  /user-other/areas:
+    put:
+      summary: ''
+      operationId: put-user-other-areas
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Fail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                area:
+                  type: string
+                cities:
+                  type: array
+                  items:
+                    type: string
+  /user-other/ages:
+    put:
+      summary: ''
+      operationId: put-user-other-ages
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ages:
+                  type: array
+                  items:
+                    type: string
+        description: ''
+  /user-other/gender-borns:
+    parameters: []
+    put:
+      summary: ''
+      operationId: put-user-other-gender-borns
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                gender_borns:
+                  type: array
+                  items:
+                    type: string
+  /user-other/genders:
+    put:
+      summary: ''
+      operationId: put-user-other-genders
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                genders:
+                  type: array
+                  items:
+                    type: string
+        description: ''
+  /user-other/bodies:
+    put:
+      summary: ''
+      operationId: put-gender-born-bodies
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bodies:
+                  type: array
+                  items:
+                    type: string
+    parameters: []
+  /user-other/personalities:
+    put:
+      summary: ''
+      operationId: put-user-other-personalities
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                personalities:
+                  type: array
+                  items:
+                    type: string
+        description: ''
+  /user/display-swipe:
+    put:
+      summary: ''
+      operationId: put-user-display-swipe
+      responses:
+        '200':
+          description: OK
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                display_swipe:
+                  type: boolean
+        description: ''
+  /user/private-profile:
+    put:
+      summary: ''
+      operationId: put-user-private-profile
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                private_profile:
+                  type: boolean
+  /user/show-active:
+    put:
+      summary: ''
+      operationId: put-user-show-active
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                activity:
+                  type: boolean
+  /user/push-local/liked:
+    put:
+      summary: ''
+      operationId: put-user-push-local-liked
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                liked:
+                  type: boolean
+        description: ''
+  /user/push-local/matched:
+    put:
+      summary: ''
+      operationId: put-user-push-local-matched
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                matched:
+                  type: boolean
+  /user/push-local/message:
+    put:
+      summary: ''
+      operationId: put-user-push-local-message
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: boolean
+  /user/push-local/other-news:
+    put:
+      summary: ''
+      operationId: put-user-push-local-other-news
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                other_news:
+                  type: boolean
+  /user/push-mail/matched:
+    put:
+      summary: ''
+      operationId: put-user-push-mail-matched
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                matched:
+                  type: boolean
+  /user/push-mail/message:
+    put:
+      summary: ''
+      operationId: put-user-push-mail-message
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: boolean
+  /user/push-mail/other-news:
+    put:
+      summary: ''
+      operationId: put-user-push-mail-other-news
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                other-news:
+                  type: boolean
+  /user/push-mail/liked:
+    put:
+      summary: ''
+      operationId: put-user-push-mail-liked
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                liked:
+                  type: boolean
+  /info-app:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-settings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                qna:
+                  type: object
+                  properties:
+                    question:
+                      type: string
+                    answer:
+                      type: string
+                terms_of_service:
+                  type: string
+                specified_commercial:
+                  type: string
+                company_profile:
+                  type: string
+        description: ''
+    parameters: []
+  /setup/areas:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-setup-areas
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                areas:
+                  type: array
+                  items:
+                    type: string
+  /setup/cities:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-setup-cities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cities:
+                  type: array
+                  items:
+                    type: string
+  /setup/gender-borns:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-setup-gender-borns
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                gender_born:
+                  type: array
+                  items:
+                    type: string
+  /setup/genders:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-setup-genders
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                genders:
+                  type: array
+                  items:
+                    type: string
+  /setup/bodies:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-setup-bodies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bodies:
+                  type: array
+                  items:
+                    type: string
+  /setup/personalities:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-setup-personalities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                personalities:
+                  type: array
+                  items:
+                    type: string
+  /setup/hobbies:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-setup-hobbies
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                hobbies:
+                  type: array
+                  items:
+                    type: string
+  /setup/ages:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-setup-ages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ages:
+                  type: array
+                  items:
+                    type: string
+  /friends/loved:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-friends-loved
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                users:
+                  $ref: '#/components/schemas/User'
+            examples: {}
+  /friends/matched:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-friends-matched
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                users:
+                  $ref: '#/components/schemas/User'
+            examples: {}
+  /user/areas:
+    put:
+      summary: ''
+      operationId: put-user-area
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                area:
+                  type: string
+                city:
+                  type: string
+    parameters: []
 components:
   schemas:
     User:
       title: User
       type: object
       properties:
-        id:
+        images:
+          type: array
+          items:
+            type: string
+        last_name:
           type: string
+        first_name:
+          type: string
+        last_active_time:
+          type: string
+        activity:
+          type: boolean
+        introduction:
+          type: string
+        hobbies:
+          type: array
+          items:
+            type: string
+        gender_born:
+          type: string
+        gender:
+          type: string
+        bodies:
+          type: array
+          items:
+            type: string
+        personalities:
+          type: array
+          items:
+            type: string
+        area:
+          type: string
+        city:
+          type: string
+        schedules:
+          type: array
+          items:
+            type: string
+        job:
+          type: string
+        degree:
+          type: string
+        purpose_use_app:
+          type: array
+          items:
+            type: string
+      description: Hiển thị thông tin những user khác để mình match
+    Profile:
+      title: Profile
+      type: object
+      properties:
+        images:
+          type: array
+          items:
+            type: string
+        introduction:
+          type: string
+        last_name:
+          type: string
+        first_name:
+          type: string
+        nick_name:
+          type: string
+        hobbies:
+          type: array
+          items:
+            type: string
+        age:
+          type: integer
+        gender_born:
+          type: string
+        gender:
+          type: string
+        bodies:
+          type: array
+          items:
+            type: string
+        personalities:
+          type: array
+          items:
+            type: string
+        area:
+          type: string
+        city:
+          type: string
+        schedule:
+          $ref: '#/components/schemas/Schedule'
+        job:
+          $ref: '#/components/schemas/Job'
+        degree:
+          type: string
+        purpose_use_app:
+          type: array
+          items:
+            type: string
+        phone_number:
+          type: string
+        email:
+          type: string
+        areas_other_person:
+          $ref: '#/components/schemas/Areas'
+        ages_other_person:
+          type: array
+          items:
+            type: string
+        genders_other_person:
+          type: array
+          items:
+            type: string
+        gender_borns_other_person:
+          type: array
+          items:
+            type: string
+        bodies_other_person:
+          type: array
+          items:
+            type: string
+        personalities_other_person:
+          type: array
+          items:
+            type: string
+        profile_private:
+          type: boolean
+        show_swipe:
+          type: boolean
+        activity:
+          type: boolean
+        push_local:
+          $ref: '#/components/schemas/PushNotification'
+        push_mail:
+          $ref: '#/components/schemas/PushNotification'
+    PushNotification:
+      title: PushNotification
+      type: object
+      properties:
+        liked:
+          type: boolean
+        matched:
+          type: boolean
+        message:
+          type: boolean
+        other_news:
+          type: boolean
+    Job:
+      title: Job
+      type: object
+      properties:
+        job:
+          type: string
+        is_public:
+          type: boolean
+    Schedule:
+      title: Schedule
+      type: object
+      x-examples: {}
+      properties:
+        DayOfWeek:
+          type: string
+        PartOfDay:
+          type: array
+          items:
+            type: string
+    Areas:
+      title: Areas
+      type: object
+      properties:
+        area:
+          type: string
+        cities:
+          type: array
+          items:
+            type: string
