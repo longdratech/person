@@ -1,0 +1,418 @@
+openapi: 3.0.0
+info:
+  description: Liber love
+  contact:
+    email: t_long@stagegroup.jp
+  title: liber Love
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /register:
+    post:
+      summary: ''
+      operationId: post-register
+      responses:
+        '200':
+          description: Success
+      description: Use register new account user
+      parameters: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                rule:
+                  type: boolean
+                nick_name:
+                  type: string
+                birthday:
+                  type: string
+                  format: date-time
+                area:
+                  type: string
+                city:
+                  type: string
+                gender_born:
+                  type: string
+                gender:
+                  type: string
+                bodies:
+                  type: array
+                  items:
+                    type: string
+                personalities:
+                  type: array
+                  items: {}
+                hobbies:
+                  type: array
+                  items:
+                    type: string
+                image_id:
+                  type: string
+                  format: binary
+                images:
+                  type: string
+                  format: binary
+                introduction:
+                  type: string
+                ages_other_person:
+                  type: array
+                  items:
+                    type: string
+                areas_other_person:
+                  type: array
+                  items:
+                    type: string
+                cities_other_person:
+                  type: array
+                  items:
+                    type: string
+                genders_born_other_person:
+                  type: array
+                  items:
+                    type: string
+                genders_other_person:
+                  type: array
+                  items:
+                    type: string
+                bodies_other_person:
+                  type: array
+                  items:
+                    type: string
+                personalities_other_person:
+                  type: array
+                  items:
+                    type: string
+            examples:
+              example-1:
+                value:
+                  email: user@example.com
+                  password: string
+                  rule: true
+                  nick_name: string
+                  birthday: '2019-08-24T14:15:22Z'
+                  area: string
+                  city: string
+                  gender_born: string
+                  gender: string
+                  bodies:
+                    - string
+                  personalities:
+                    - null
+                  hobbies:
+                    - string
+                  image_id: string
+                  images: string
+                  introduction: string
+                  ages_other_person:
+                    - string
+                  areas_other_person:
+                    - string
+                  cities_other_person:
+                    - string
+                  genders_born_other_person:
+                    - string
+                  genders_other_person:
+                    - string
+                  bodies_other_person:
+                    - string
+                  personalities_other_person:
+                    - string
+  /profile:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-user
+      description: get all info user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                phone:
+                  type: string
+                last_name:
+                  type: string
+                last_time_active:
+                  type: string
+                nick_name:
+                  type: string
+                has_free_time:
+                  type: boolean
+                birthday:
+                  type: string
+                area:
+                  type: string
+                city:
+                  type: string
+                gender_born:
+                  type: string
+                gender:
+                  type: string
+                bodies:
+                  type: array
+                  items:
+                    type: string
+                personalities:
+                  type: array
+                  items:
+                    type: string
+                hobbies:
+                  type: array
+                  items:
+                    type: string
+                images:
+                  type: array
+                  items:
+                    type: string
+                introduction:
+                  type: string
+                areas_other_person:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      area:
+                        type: string
+                      cities:
+                        type: array
+                        items:
+                          type: string
+                ages_other_person:
+                  type: array
+                  items:
+                    type: string
+                gender_borns_other_person:
+                  type: string
+                genders_other_person:
+                  type: string
+                bodies_other_person:
+                  type: string
+                personalities_other_person:
+                  type: array
+                  items:
+                    type: string
+                show_swipe:
+                  type: boolean
+                show_info:
+                  type: boolean
+                private_profile:
+                  type: boolean
+                activity:
+                  type: boolean
+                push_local:
+                  type: object
+                  properties:
+                    liked:
+                      type: boolean
+                    matched:
+                      type: boolean
+                    message:
+                      type: boolean
+                    other_news:
+                      type: boolean
+                push_mail:
+                  type: object
+                  properties:
+                    liked:
+                      type: boolean
+                    matched:
+                      type: boolean
+                    message:
+                      type: boolean
+                    other_news:
+                      type: boolean
+                qna:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      question:
+                        type: string
+                      answer:
+                        type: string
+                company_profile:
+                  type: string
+                tems_of_service:
+                  type: string
+                specified_commercial:
+                  type: string
+            examples:
+              profile:
+                value:
+                  email: abc@example.com
+                  phone: '0123456789'
+                  first_name: 名前
+                  last_name: 年齢
+                  last_time_active: '10:50 9/9/2020'
+                  nick_name: susake
+                  has_free_time: true
+                  birthday: '2010-02-11'
+                  area: 北海道
+                  city: 千代田区
+                  gender_born: 男
+                  gender: どちらでもない
+                  bodies:
+                    - 男性的
+                    - ぽっちゃり
+                  personalities:
+                    - 優しい
+                    - インドア
+                  hobbies:
+                    - ファッション
+                    - 音楽
+                    - 映画鑑賞
+                    - メイク・美容ケア
+                  images:
+                    - 'https://ibb.co/XCGnGTb'
+                    - 'https://ibb.co/JrqVFcY'
+                  introduction: 自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。
+                  areas_other_person:
+                    - area: 北海道
+                      cities:
+                        - 千代田区
+                        - 中央区
+                    - area: 秋田
+                      cities:
+                        - 文京区
+                        - 中央区
+                  ages_other_person:
+                    - '15'
+                    - '20'
+                  gender_born_other_person:
+                    - 男
+                  gender_other_person:
+                    - どちらでもない
+                    - 男
+                  boddies_other_person:
+                    - 男性的
+                    - ぽっちゃり
+                  personalities_other_person:
+                    - 優しい
+                    - インドア
+                  show_swipe: true
+                  show_info: true
+                  private_profile: true
+                  activity: true
+                  push_local:
+                    liked: true
+                    matched: true
+                    message: true
+                    other_news: true
+                  push_email:
+                    liked: true
+                    matched: true
+                    message: true
+                    other_news: true
+                  qna:
+                    - question: 質問内容が入ります。
+                      answer: 質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。
+                    - question: 質問内容が入ります。
+                      answer: 質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。
+                    - question: 質問内容が入ります。
+                      answer: 質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。
+                    - question: 質問内容が入ります。
+                      answer: 質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。
+                  company_profile: 会社概要が入ります。会社概要が入ります。会社概要が入ります。会社h概要が入ります。会社概要が入ります。
+                  terms_of_service: string
+                  privacy_policy: プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。
+                  specified_commercial: 特定商取引法に基づく表示が入ります。特定商取引法に基づく表示が入ります。特定商取引法に基づく表示が入ります。特定商取引法に基づく表示が入ります。
+    parameters: []
+  /login:
+    post:
+      summary: ''
+      operationId: post-login
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+            examples:
+              login:
+                value:
+                  email: string
+                  password: string
+        description: ''
+  /verify/email:
+    post:
+      summary: ''
+      operationId: post-register-verify
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+        description: ''
+    parameters: []
+  /verify/phone:
+    parameters: []
+    post:
+      summary: ''
+      operationId: post-verify-phone
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+  /verify/otp:
+    post:
+      summary: ''
+      operationId: post-verify-otp
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                otp:
+                  type: string
+                  description: |
+                    User gui ma otp gom 6 so len server xac thuc
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      properties:
+        id:
+          type: string
