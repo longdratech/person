@@ -1,0 +1,85 @@
+
+{
+  "data": {
+    "images": [
+      "string"
+    ],
+    "introduction": "string",
+    "last_name": "string",
+    "first_name": "string",
+    "nick_name": "string",
+    "hobbies": [
+      "string"
+    ],
+    "age": "string",
+    "gender_born": "string",
+    "gender": "string",
+    "bodies": [
+      "string"
+    ],
+    "personalities": [
+      "string"
+    ],
+    "area": "string",
+    "city": "string",
+    "schedule": {
+      "schedules": [
+        {
+          "schedules": {
+            "DayOfWeek": "string",
+            "PartOfDay": [
+              "string"
+            ]
+          }
+        }
+      ],
+      "is_public": true
+    },
+    "degree": "string",
+    "purpose_use_app": [
+      "string"
+    ],
+    "phone_number": "string",
+    "email": "string",
+    "areas_other_person": [
+      {
+        "areas": {
+          "area": "string",
+          "cities": [
+            "string"
+          ]
+        }
+      }
+    ],
+    "ages_other_person": [
+      "string"
+    ],
+    "genders_other_person": [
+      "string"
+    ],
+    "gender_borns_other_person": [
+      "string"
+    ],
+    "bodies_other_person": [
+      "string"
+    ],
+    "personalities_other_person": [
+      "string"
+    ],
+    "profile_private": true,
+    "show_swipe": true,
+    "activity": true,
+    "push_local": {
+      "liked": true,
+      "matched": true,
+      "message": true,
+      "other_news": true
+    },
+    "push_mail": {
+      "liked": true,
+      "matched": true,
+      "message": true,
+      "other_news": true
+    }
+  }
+}
