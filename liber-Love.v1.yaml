@@ -1,12 +1,21 @@
 openapi: 3.0.0
-info:
-  description: Liber love
-  contact:
-    email: t_long@stagegroup.jp
-  title: liber Love
-  version: '1.0'
 servers:
-  - url: 'https://liberlove.stoplight.io'
+  - description: SwaggerHub API Auto Mocking
+    url: 'https://virtserver.swaggerhub.com/g556/liberloveapi/1.0.0'
+info:
+  description: This is a simple API
+  version: 1.0.0
+  title: Simple Inventory API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admins
+    description: Secured Admin-only calls
+  - name: developers
+    description: Operations available to regular developers
 paths:
   /register:
     post:
@@ -142,67 +151,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/Profile'
               examples:
-                profile:
-                  value:
-                    data:
-                      images:
-                        - 'https://ibb.co/JKzVw9s'
-                        - ''
-                      introduction: string
-                      last_name: string
-                      first_name: string
-                      nick_name: string
-                      hobbies:
-                        - string
-                      age: 0
-                      gender_born: string
-                      gender: string
-                      bodies:
-                        - string
-                      personalities:
-                        - string
-                      area: string
-                      city: string
-                      schedule:
-                        DayOfWeek: string
-                        PartOfDay:
-                          - string
-                      job:
-                        job: string
-                        is_public: true
-                      degree: string
-                      purpose_use_app:
-                        - string
-                      phone_number: string
-                      email: string
-                      areas_other_person:
-                        area: string
-                        cities:
-                          - string
-                      ages_other_person:
-                        - string
-                      genders_other_person:
-                        - string
-                      gender_borns_other_person:
-                        - string
-                      bodies_other_person:
-                        - string
-                      personalities_other_person:
-                        - string
-                      profile_private: true
-                      show_swipe: true
-                      activity: true
-                      push_local:
-                        liked: true
-                        matched: true
-                        message: true
-                        other_news: true
-                      push_mail:
-                        liked: true
-                        matched: true
-                        message: true
-                        other_news: true
-                example-2:
+                example-1:
                   value:
                     data:
                       images:
@@ -223,11 +172,11 @@ paths:
                       area: string
                       city: string
                       schedule:
-                        DayOfWeek: string
-                        PartOfDay:
-                          - string
-                      job:
-                        job: string
+                        schedules:
+                          - schedules:
+                              DayOfWeek: string
+                              PartOfDay:
+                                - string
                         is_public: true
                       degree: string
                       purpose_use_app:
@@ -235,9 +184,10 @@ paths:
                       phone_number: string
                       email: string
                       areas_other_person:
-                        area: string
-                        cities:
-                          - string
+                        - areas:
+                            area: string
+                            cities:
+                              - string
                       ages_other_person:
                         - string
                       genders_other_person:
@@ -1221,10 +1171,6 @@ paths:
                         degree: string
                         purpose_use_app:
                           - string
-        '204':
-          description: No content
-        '401':
-          description: Unauthorized
 components:
   schemas:
     User:
@@ -1281,6 +1227,68 @@ components:
     Profile:
       title: Profile
       type: object
+      x-examples:
+        example-1:
+          images:
+            - string
+          introduction: string
+          last_name: string
+          first_name: string
+          nick_name: string
+          hobbies:
+            - string
+          age: string
+          gender_born: string
+          gender: string
+          bodies:
+            - string
+          personalities:
+            - string
+          area: string
+          city: string
+          schedule:
+            schedules:
+              - schedules:
+                  DayOfWeek: string
+                  PartOfDay:
+                    - string
+            is_public: true
+          degree:
+            job:
+              job: string
+              is_public: true
+          purpose_use_app:
+            - string
+          phone_number: string
+          email: string
+          areas_other_person:
+            - areas:
+                area: string
+                cities:
+                  - string
+          ages_other_person:
+            - string
+          genders_other_person:
+            - string
+          gender_borns_other_person:
+            - string
+          bodies_other_person:
+            - string
+          personalities_other_person:
+            - string
+          profile_private: true
+          show_swipe: true
+          activity: true
+          push_local:
+            liked: true
+            matched: true
+            message: true
+            other_news: true
+          push_mail:
+            liked: true
+            matched: true
+            message: true
+            other_news: true
       properties:
         images:
           type: array
@@ -1317,11 +1325,22 @@ components:
         city:
           type: string
         schedule:
-          $ref: '#/components/schemas/Schedule'
-        job:
-          $ref: '#/components/schemas/Job'
+          type: object
+          properties:
+            schedules:
+              type: array
+              items:
+                type: object
+                properties:
+                  schedules:
+                    $ref: '#/components/schemas/Schedule'
+            is_public:
+              type: boolean
         degree:
-          type: string
+          type: object
+          properties:
+            job:
+              $ref: '#/components/schemas/Job'
         purpose_use_app:
           type: array
           items:
@@ -1331,7 +1350,12 @@ components:
         email:
           type: string
         areas_other_person:
-          $ref: '#/components/schemas/Areas'
+          type: array
+          items:
+            type: object
+            properties:
+              areas:
+                $ref: '#/components/schemas/Areas'
         ages_other_person:
           type: array
           items:
@@ -1362,7 +1386,6 @@ components:
           $ref: '#/components/schemas/PushNotification'
         push_mail:
           $ref: '#/components/schemas/PushNotification'
-      description: ''
     PushNotification:
       title: PushNotification
       type: object
@@ -1386,7 +1409,6 @@ components:
     Schedule:
       title: Schedule
       type: object
-      x-examples: {}
       properties:
         DayOfWeek:
           type: string
@@ -1404,4 +1426,12 @@ components:
           type: array
           items:
             type: string
+    Degree:
+      title: Degree
+      type: object
+      properties:
+        job:
+          type: string
+        is_public:
+          type: boolean
   securitySchemes: {}
