@@ -126,12 +126,13 @@ paths:
                   personalities_other_person:
                     - string
   /user/profile:
-    post:
-      summary: Your GET endpoint
-      tags: []
-      operationId: get-user
-      description: get all info user
-      parameters: []
+    parameters: []
+    get:
+      summary: ''
+      operationId: get-user-profile
+      responses:
+        '200':
+          description: OK
       requestBody:
         content:
           application/json:
@@ -140,8 +141,6 @@ paths:
               properties:
                 data:
                   $ref: '#/components/schemas/Profile'
-            examples: {}
-    parameters: []
   /login:
     post:
       summary: ''
@@ -1102,3 +1101,4 @@ components:
           type: array
           items:
             type: string
+  securitySchemes: {}
