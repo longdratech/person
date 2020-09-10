@@ -1340,7 +1340,7 @@ components:
           type: object
           properties:
             job:
-              $ref: '#/components/schemas/Job'
+              $ref: '#/components/schemas/Degree'
         purpose_use_app:
           type: array
           items:
