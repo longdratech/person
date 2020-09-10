@@ -6,7 +6,7 @@ info:
   title: liber Love
   version: '1.0'
 servers:
-  - url: 'https://actvn.stoplight.io'
+  - url: 'https://liberlove.stoplight.io'
 paths:
   /register:
     post:
@@ -133,14 +133,134 @@ paths:
       responses:
         '200':
           description: OK
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                data:
-                  $ref: '#/components/schemas/Profile'
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Profile'
+              examples:
+                profile:
+                  value:
+                    data:
+                      images:
+                        - 'https://ibb.co/JKzVw9s'
+                        - ''
+                      introduction: string
+                      last_name: string
+                      first_name: string
+                      nick_name: string
+                      hobbies:
+                        - string
+                      age: 0
+                      gender_born: string
+                      gender: string
+                      bodies:
+                        - string
+                      personalities:
+                        - string
+                      area: string
+                      city: string
+                      schedule:
+                        DayOfWeek: string
+                        PartOfDay:
+                          - string
+                      job:
+                        job: string
+                        is_public: true
+                      degree: string
+                      purpose_use_app:
+                        - string
+                      phone_number: string
+                      email: string
+                      areas_other_person:
+                        area: string
+                        cities:
+                          - string
+                      ages_other_person:
+                        - string
+                      genders_other_person:
+                        - string
+                      gender_borns_other_person:
+                        - string
+                      bodies_other_person:
+                        - string
+                      personalities_other_person:
+                        - string
+                      profile_private: true
+                      show_swipe: true
+                      activity: true
+                      push_local:
+                        liked: true
+                        matched: true
+                        message: true
+                        other_news: true
+                      push_mail:
+                        liked: true
+                        matched: true
+                        message: true
+                        other_news: true
+                example-2:
+                  value:
+                    data:
+                      images:
+                        - string
+                      introduction: string
+                      last_name: string
+                      first_name: string
+                      nick_name: string
+                      hobbies:
+                        - string
+                      age: string
+                      gender_born: string
+                      gender: string
+                      bodies:
+                        - string
+                      personalities:
+                        - string
+                      area: string
+                      city: string
+                      schedule:
+                        DayOfWeek: string
+                        PartOfDay:
+                          - string
+                      job:
+                        job: string
+                        is_public: true
+                      degree: string
+                      purpose_use_app:
+                        - string
+                      phone_number: string
+                      email: string
+                      areas_other_person:
+                        area: string
+                        cities:
+                          - string
+                      ages_other_person:
+                        - string
+                      genders_other_person:
+                        - string
+                      gender_borns_other_person:
+                        - string
+                      bodies_other_person:
+                        - string
+                      personalities_other_person:
+                        - string
+                      profile_private: true
+                      show_swipe: true
+                      activity: true
+                      push_local:
+                        liked: true
+                        matched: true
+                        message: true
+                        other_news: true
+                      push_mail:
+                        liked: true
+                        matched: true
+                        message: true
+                        other_news: true
   /login:
     post:
       summary: ''
@@ -851,78 +971,260 @@ paths:
     get:
       summary: Your GET endpoint
       tags: []
-      responses: {}
       operationId: get-users
-      parameters:
-        - schema:
-            type: string
-          in: header
-          name: first_name
-        - schema:
-            type: string
-          in: header
-          name: last_name
-        - schema:
-            type: array
-          in: header
-          name: images
-          description: ''
-        - schema:
-            type: string
-          in: header
-          name: last_active_time
-        - schema:
-            type: boolean
-          in: header
-          name: has_free_time
-        - schema:
-            type: string
-          in: header
-          name: introduction
-        - schema:
-            type: array
-          in: header
-          name: hobbies
-        - schema:
-            type: string
-          in: header
-          name: gender_born
-        - schema:
-            type: string
-          in: header
-          name: gender
-        - schema:
-            type: array
-          in: header
-          name: bodies
-        - schema:
-            type: array
-          in: header
-          name: personalities
-        - schema:
-            type: string
-          in: header
-          name: area
-        - schema:
-            type: string
-          in: header
-          name: city
-        - schema:
-            type: string
-          in: header
-          name: schedule
-        - schema:
-            type: string
-          in: header
-          name: job
-        - schema:
-            type: string
-          in: header
-          name: degree
-        - schema:
-            type: array
-          in: header
-          name: purpose_use_app
+      parameters: []
+      description: ''
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+              examples:
+                users:
+                  value:
+                    data:
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+                      - images:
+                          - string
+                        last_name: string
+                        first_name: string
+                        last_active_time: string
+                        activity: true
+                        introduction: string
+                        hobbies:
+                          - string
+                        gender_born: string
+                        gender: string
+                        bodies:
+                          - string
+                        personalities:
+                          - string
+                        area: string
+                        city: string
+                        schedules:
+                          - string
+                        job: string
+                        degree: string
+                        purpose_use_app:
+                          - string
+        '204':
+          description: No content
+        '401':
+          description: Unauthorized
 components:
   schemas:
     User:
@@ -997,7 +1299,7 @@ components:
           items:
             type: string
         age:
-          type: integer
+          type: string
         gender_born:
           type: string
         gender:
@@ -1060,6 +1362,7 @@ components:
           $ref: '#/components/schemas/PushNotification'
         push_mail:
           $ref: '#/components/schemas/PushNotification'
+      description: ''
     PushNotification:
       title: PushNotification
       type: object
