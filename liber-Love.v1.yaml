@@ -1,7 +1,7 @@
 openapi: 3.0.0
 servers:
   - description: SwaggerHub API Auto Mocking
-    url: 'https://virtserver.swaggerhub.com/g556/liberloveapi/1.0.0'
+    url: 'http://127.0.0.1:4010/'
 info:
   description: This is a simple API
   version: 1.0.0
@@ -1339,7 +1339,7 @@ components:
         degree:
           type: object
           properties:
-            job:
+            degree:
               $ref: '#/components/schemas/Degree'
         purpose_use_app:
           type: array
