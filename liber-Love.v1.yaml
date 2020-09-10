@@ -6,7 +6,7 @@ info:
   title: liber Love
   version: '1.0'
 servers:
-  - url: 'https://actvn.stoplight.io:3000'
+  - url: 'https://actvn.stoplight.io'
 paths:
   /register:
     post:
