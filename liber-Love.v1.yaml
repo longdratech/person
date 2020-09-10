@@ -6,7 +6,7 @@ info:
   title: liber Love
   version: '1.0'
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://actvn.stoplight.io:3000'
 paths:
   /register:
     post:
@@ -126,242 +126,21 @@ paths:
                   personalities_other_person:
                     - string
   /user/profile:
-    get:
+    post:
       summary: Your GET endpoint
       tags: []
-      responses:
-        '200':
-          description: OK
       operationId: get-user
       description: get all info user
+      parameters: []
       requestBody:
         content:
           application/json:
             schema:
               type: object
               properties:
-                phone:
-                  type: string
-                last_name:
-                  type: string
-                last_time_active:
-                  type: string
-                nick_name:
-                  type: string
-                has_free_time:
-                  type: boolean
-                birthday:
-                  type: string
-                area:
-                  type: string
-                city:
-                  type: string
-                gender_born:
-                  type: string
-                gender:
-                  type: string
-                bodies:
-                  type: array
-                  items:
-                    type: string
-                personalities:
-                  type: array
-                  items:
-                    type: string
-                hobbies:
-                  type: array
-                  items:
-                    type: string
-                images:
-                  type: array
-                  items:
-                    type: string
-                introduction:
-                  type: string
-                areas_other_person:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      area:
-                        type: string
-                      cities:
-                        type: array
-                        items:
-                          type: string
-                ages_other_person:
-                  type: array
-                  items:
-                    type: string
-                gender_borns_other_person:
-                  type: string
-                genders_other_person:
-                  type: string
-                bodies_other_person:
-                  type: string
-                personalities_other_person:
-                  type: array
-                  items:
-                    type: string
-                show_swipe:
-                  type: boolean
-                show_info:
-                  type: boolean
-                private_profile:
-                  type: boolean
-                activity:
-                  type: boolean
-                push_local:
-                  type: object
-                  properties:
-                    liked:
-                      type: boolean
-                    matched:
-                      type: boolean
-                    message:
-                      type: boolean
-                    other_news:
-                      type: boolean
-                push_mail:
-                  type: object
-                  properties:
-                    liked:
-                      type: boolean
-                    matched:
-                      type: boolean
-                    message:
-                      type: boolean
-                    other_news:
-                      type: boolean
-                email:
-                  type: string
-            examples:
-              profile:
-                value:
-                  email: abc@example.com
-                  phone: '0123456789'
-                  first_name: 名前
-                  last_name: 年齢
-                  last_time_active: '10:50 9/9/2020'
-                  nick_name: susake
-                  has_free_time: true
-                  birthday: '2010-02-11'
-                  area: 北海道
-                  city: 千代田区
-                  gender_born: 男
-                  gender: どちらでもない
-                  bodies:
-                    - 男性的
-                    - ぽっちゃり
-                  personalities:
-                    - 優しい
-                    - インドア
-                  hobbies:
-                    - ファッション
-                    - 音楽
-                    - 映画鑑賞
-                    - メイク・美容ケア
-                  images:
-                    - 'https://ibb.co/XCGnGTb'
-                    - 'https://ibb.co/JrqVFcY'
-                  introduction: 自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。自己紹介が入ります。
-                  areas_other_person:
-                    - area: 北海道
-                      cities:
-                        - 千代田区
-                        - 中央区
-                    - area: 秋田
-                      cities:
-                        - 文京区
-                        - 中央区
-                  ages_other_person:
-                    - '15'
-                    - '20'
-                  gender_born_other_person:
-                    - 男
-                  gender_other_person:
-                    - どちらでもない
-                    - 男
-                  boddies_other_person:
-                    - 男性的
-                    - ぽっちゃり
-                  personalities_other_person:
-                    - 優しい
-                    - インドア
-                  show_swipe: true
-                  show_info: true
-                  private_profile: true
-                  activity: true
-                  push_local:
-                    liked: true
-                    matched: true
-                    message: true
-                    other_news: true
-                  push_email:
-                    liked: true
-                    matched: true
-                    message: true
-                    other_news: true
-                  qna:
-                    - question: 質問内容が入ります。
-                      answer: 質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。
-                    - question: 質問内容が入ります。
-                      answer: 質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。
-                    - question: 質問内容が入ります。
-                      answer: 質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。
-                    - question: 質問内容が入ります。
-                      answer: 質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。質問の回答が入ります。
-                  company_profile: 会社概要が入ります。会社概要が入ります。会社概要が入ります。会社h概要が入ります。会社概要が入ります。
-                  terms_of_service: string
-                  privacy_policy: プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。プライバシーポリシーが入ります。
-                  specified_commercial: 特定商取引法に基づく表示が入ります。特定商取引法に基づく表示が入ります。特定商取引法に基づく表示が入ります。特定商取引法に基づく表示が入ります。
-              example-2:
-                value:
-                  phone: string
-                  last_name: string
-                  last_time_active: string
-                  nick_name: string
-                  has_free_time: true
-                  birthday: string
-                  area: string
-                  city: string
-                  gender_born: string
-                  gender: string
-                  bodies:
-                    - string
-                  personalities:
-                    - string
-                  hobbies:
-                    - string
-                  images:
-                    - string
-                  introduction: string
-                  areas_other_person:
-                    - area: string
-                      cities:
-                        - string
-                  ages_other_person:
-                    - string
-                  gender_borns_other_person: string
-                  genders_other_person: string
-                  bodies_other_person: string
-                  personalities_other_person:
-                    - string
-                  show_swipe: true
-                  show_info: true
-                  private_profile: true
-                  activity: true
-                  push_local:
-                    liked: true
-                    matched: true
-                    message: true
-                    other_news: true
-                  push_mail:
-                    liked: true
-                    matched: true
-                    message: true
-                    other_news: true
-                  email: string
+                data:
+                  $ref: '#/components/schemas/Profile'
+            examples: {}
     parameters: []
   /login:
     post:
@@ -970,26 +749,6 @@ paths:
         '200':
           description: OK
       operationId: get-settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                qna:
-                  type: object
-                  properties:
-                    question:
-                      type: string
-                    answer:
-                      type: string
-                terms_of_service:
-                  type: string
-                specified_commercial:
-                  type: string
-                company_profile:
-                  type: string
-        description: ''
     parameters: []
   /setup/areas:
     get:
@@ -999,16 +758,6 @@ paths:
         '200':
           description: OK
       operationId: get-setup-areas
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                areas:
-                  type: array
-                  items:
-                    type: string
   /setup/cities:
     get:
       summary: Your GET endpoint
@@ -1017,16 +766,6 @@ paths:
         '200':
           description: OK
       operationId: get-setup-cities
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                cities:
-                  type: array
-                  items:
-                    type: string
   /setup/gender-borns:
     get:
       summary: Your GET endpoint
@@ -1035,16 +774,6 @@ paths:
         '200':
           description: OK
       operationId: get-setup-gender-borns
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                gender_born:
-                  type: array
-                  items:
-                    type: string
   /setup/genders:
     get:
       summary: Your GET endpoint
@@ -1053,16 +782,6 @@ paths:
         '200':
           description: OK
       operationId: get-setup-genders
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                genders:
-                  type: array
-                  items:
-                    type: string
   /setup/bodies:
     get:
       summary: Your GET endpoint
@@ -1071,16 +790,6 @@ paths:
         '200':
           description: OK
       operationId: get-setup-bodies
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                bodies:
-                  type: array
-                  items:
-                    type: string
   /setup/personalities:
     get:
       summary: Your GET endpoint
@@ -1089,16 +798,6 @@ paths:
         '200':
           description: OK
       operationId: get-setup-personalities
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                personalities:
-                  type: array
-                  items:
-                    type: string
   /setup/hobbies:
     get:
       summary: Your GET endpoint
@@ -1107,16 +806,6 @@ paths:
         '200':
           description: OK
       operationId: get-setup-hobbies
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                hobbies:
-                  type: array
-                  items:
-                    type: string
   /setup/ages:
     get:
       summary: Your GET endpoint
@@ -1125,16 +814,6 @@ paths:
         '200':
           description: OK
       operationId: get-setup-ages
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                ages:
-                  type: array
-                  items:
-                    type: string
   /friends/loved:
     get:
       summary: Your GET endpoint
@@ -1143,15 +822,6 @@ paths:
         '200':
           description: OK
       operationId: get-friends-loved
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                users:
-                  $ref: '#/components/schemas/User'
-            examples: {}
   /friends/matched:
     get:
       summary: Your GET endpoint
@@ -1160,15 +830,6 @@ paths:
         '200':
           description: OK
       operationId: get-friends-matched
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                users:
-                  $ref: '#/components/schemas/User'
-            examples: {}
   /user/areas:
     put:
       summary: ''
@@ -1187,6 +848,82 @@ paths:
                 city:
                   type: string
     parameters: []
+  /users:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-users
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: first_name
+        - schema:
+            type: string
+          in: header
+          name: last_name
+        - schema:
+            type: array
+          in: header
+          name: images
+          description: ''
+        - schema:
+            type: string
+          in: header
+          name: last_active_time
+        - schema:
+            type: boolean
+          in: header
+          name: has_free_time
+        - schema:
+            type: string
+          in: header
+          name: introduction
+        - schema:
+            type: array
+          in: header
+          name: hobbies
+        - schema:
+            type: string
+          in: header
+          name: gender_born
+        - schema:
+            type: string
+          in: header
+          name: gender
+        - schema:
+            type: array
+          in: header
+          name: bodies
+        - schema:
+            type: array
+          in: header
+          name: personalities
+        - schema:
+            type: string
+          in: header
+          name: area
+        - schema:
+            type: string
+          in: header
+          name: city
+        - schema:
+            type: string
+          in: header
+          name: schedule
+        - schema:
+            type: string
+          in: header
+          name: job
+        - schema:
+            type: string
+          in: header
+          name: degree
+        - schema:
+            type: array
+          in: header
+          name: purpose_use_app
 components:
   schemas:
     User:
